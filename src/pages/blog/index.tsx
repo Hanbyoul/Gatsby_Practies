@@ -7,7 +7,7 @@ const blog = ({ data }: PageProps<Queries.BlogPostsQuery>) => {
   console.log(data);
   return (
     <Layout title="blog">
-      <section>
+      <section className="grid">
         {data.allMdx.nodes.map((file, index) => (
           <article key={index}>
             <Link to={`/blog/${file.frontmatter?.slug}`}>
@@ -16,7 +16,7 @@ const blog = ({ data }: PageProps<Queries.BlogPostsQuery>) => {
                 {file.frontmatter?.author} in : {file.frontmatter?.category}
               </h5>
               <h6>{file.frontmatter?.data}</h6>
-              <hr />
+
               <p>{file.excerpt}</p>
             </Link>
           </article>
